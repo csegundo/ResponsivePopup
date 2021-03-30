@@ -30,7 +30,8 @@
     
     <!-- ignore -->
     <style>
-        .main{text-align:center;margin-top:2rem;}
+        body{height: 1000px;}.main{text-align:center;margin-top:2rem;}.example,h1{margin-top:2rem;}.example h1{text-align:center;}
+        .code{border-left:5px solid #79ca69;border-radius:4px;text-align:left;display:inline-block;padding-left: 5px;}
     </style>
 
     <title>csegundo | Responsive popup</title>
@@ -40,6 +41,17 @@
     <div class="main">
         <h1>Responsive Bootstrap Popup</h1>
         <button class="btn btn-primary btn-display">Click me!</button>
+
+        <h1>Basic skeleton</h1>
+        <div class="code">
+            <pre><code>
+&lt;div class="popup-body"&gt;
+    your popup content here
+&lt;/div>
+&lt;div class="popup-actions"&gt;
+    your buttons here
+&lt;/div&gt;</code></pre>
+        </div>
     </div>
 </body>
 </html>
