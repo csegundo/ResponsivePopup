@@ -74,5 +74,7 @@ _To see an example you can download "example.html" and "example.js" to see how t
 
 ![Responsive](images/responsive.png)
 
+![noButtons](/images/noButtons.png)
+
 ---
 ⌨️ with ❤️ by [csegundo](https://github.com/csegundo) 😊

@@ -10,13 +10,23 @@ $(function(){
     window.CPOPUP = window.CPOPUP || {};
     window.CPOPUP = {
         /**
+         * main configuration
+         */
+        props : {
+            speed : 250
+        },
+
+        /**
          * @param {String} title: the title
          * @param {String} icon: the icon
+         * @param {Number} speed: animation popup speed (default 250)
+         * 
+         * @returns popup wrapper
          */
-        create : function(title, icon){
+        create : function(title, icon, speed){
+            CPOPUP.props.speed = speed || CPOPUP.props.speed;
             title   = title || 'info.';
             icon    = icon  || '';
-
             var build = {};
 
             build.mainPopup     = $('<div class="cpopup"></div>');
@@ -33,23 +43,37 @@ $(function(){
             $(build.popupContent).append(build.popupWrapper);
 
             $(build.popupContent).on('click', '.popup-close', function(){
-                $(build.mainPopup).remove();
-                if($('body').find('.cpopup').length == 0){
-                    $('body').css('overflow', 'auto');
-                }
+                CPOPUP.close(build.mainPopup);
             });
+            // $(build.mainPopup).on('click', 'not(.popup-content)', function(){
+            //     CPOPUP.close(build.mainPopup);
+            // });
 
-            return build.popupWrapper; // Returns the popup wrapper
+            return build.popupWrapper;
         },
     
         /**
          * @param {Object} wrapper: popup wrapper (returned value from create())
          */
         close : function(wrapper){
-            wrapper.parents('.cpopup').remove();
-            if($('body').find('.cpopup').length == 0){
-                $('body').css('overflow', 'auto');
-            }
+            var wp = wrapper.hasClass('cpopup') ? wrapper : wrapper.parents('.cpopup');
+            wp.find('.popup-content').slideUp(CPOPUP.props.speed, function(){
+                wp.animate({
+                    opacity : 0 // blur effect
+                }, {
+                    complete : function(){
+                        if(wrapper.hasClass('cpopup')){
+                            wrapper.remove();
+                        } else{
+                            wrapper.parents('.cpopup').remove();
+                        }
+            
+                        if($('body').find('.cpopup').length == 0){
+                            $('body').css('overflow', 'auto');
+                        }
+                    }
+                });
+            });
         }
     };
 });
