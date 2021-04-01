@@ -62,11 +62,7 @@ $(function(){
                     opacity : 0 // blur effect
                 }, {
                     complete : function(){
-                        if(wrapper.hasClass('cpopup')){
-                            wrapper.remove();
-                        } else{
-                            wrapper.parents('.cpopup').remove();
-                        }
+                        wp.remove();
             
                         if($('body').find('.cpopup').length == 0){
                             $('body').css('overflow', 'auto');
