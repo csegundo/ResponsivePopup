@@ -42,10 +42,14 @@ $(function(){
             $(build.popupContent).html(build.popupHeader);
             $(build.popupContent).append(build.popupWrapper);
 
-            $(build.popupContent).on('click', '.popup-close', function(){
+            // $(build.popupContent).slideDown(CPOPUP.props.speed, function(){
+            //     $(build.popupContent).removeClass('hide').addClass('show');
+            // });
+
+            $(build.popupContent).on('click', '.popup-header .popup-close', function(){
                 CPOPUP.close(build.mainPopup);
             });
-            // $(build.mainPopup).on('click', 'not(.popup-content)', function(){
+            // $(build.mainPopup).on('click', ':not(.popup-content)', function(){
             //     CPOPUP.close(build.mainPopup);
             // });
 

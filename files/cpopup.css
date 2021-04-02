@@ -28,6 +28,12 @@
     top: 100px;
     margin: 0 10px;
 }
+.cpopup .popup-content.hide{
+    display: none !important;
+}
+.cpopup .popup-content.show{
+    display: block !important;
+}
 
 /* POPUP HEADER */
 .cpopup .popup-content .popup-header{
