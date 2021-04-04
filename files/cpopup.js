@@ -42,16 +42,15 @@ $(function(){
             $(build.popupContent).html(build.popupHeader);
             $(build.popupContent).append(build.popupWrapper);
 
-            // $(build.popupContent).slideDown(CPOPUP.props.speed, function(){
-            //     $(build.popupContent).removeClass('hide').addClass('show');
-            // });
-
             $(build.popupContent).on('click', '.popup-header .popup-close', function(){
                 CPOPUP.close(build.mainPopup);
             });
-            // $(build.mainPopup).on('click', ':not(.popup-content)', function(){
-            //     CPOPUP.close(build.mainPopup);
-            // });
+            
+            $(build.mainPopup).on('click', function(event){
+                if(!$(build.popupContent).is(event.target) && $(build.popupContent).has(event.target).length == 0){
+                    CPOPUP.close(build.mainPopup);
+                }
+            });
 
             return build.popupWrapper;
         },

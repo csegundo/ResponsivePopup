@@ -7,7 +7,7 @@ $(function(){
         // var popup -> the CPOUP instance wrapper
         var popup = CPOPUP.create('Responsive popup example', 'info');
 
-        // MANDATORY -> popup content skeleton
+        // popup content skeleton
         // For reasons of speed, the code is added as a string, but they can be tamplates, for example.
         var _template = `
         <div class="popup-body">

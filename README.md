@@ -9,7 +9,7 @@ Requisitos necesarios para el correcto funcionamiento. Tu página debe disponer 
 
 _Necessary requirements for proper operation. Your page must have the following elements._
 
-* [jQuery](https://code.jquery.com/) - Download link
+* [jQuery](https://code.jquery.com/) - Download link (NOT slim)
 * [FontAwesome](https://fontawesome.com/v4.7.0/get-started/) - Download link
 * [CSS](minified/cpopup.min.css) - CSS ResponsivePopup
 * [JS](minified/cpopup.min.js) - JS ResponsivePopup
@@ -26,9 +26,9 @@ _First of all you will have to include both the JS and the CSS of _ResponsivePop
 <script src="cpopup.js"></script>
 ```
 
-Luego en tu código JS donde quieras crear un popup tan solo deberás llamar al objeto del plugin para crearlo, pasandole como parámetros el título y el nombre del icono de FontAwesome.
+Luego en tu código JS donde quieras crear un popup tan solo deberás llamar al objeto del plugin para crearlo, pasandole como parámetros el título, el nombre del icono de FontAwesome y la velocidad, siendo estos dos últimos opcionales.
 
-_Then in your JS code where you want to create a popup, you just have to call the plugin object to create it, passing the title and the name of the FontAwesome icon as parameters._
+_Then in your JS code where you want to create a popup, you just have to call the plugin object to create it, passing the title, the name of the FontAwesome icon and the speed as parameters, the latter two being optional._
 
 ```
 var popup = CPOPUP.create('The title', 'info');
@@ -39,7 +39,10 @@ El código anterior te devolverá el wrapper del popup. A éste deberás asignar
 _The above code will return the popup wrapper. You must assign an HTML code to this that you can use later via JS. To close any popup you just have to call:_
 
 ```
-var popup = CPOPUP.create('The title', 'info');
+// title    : popup title [OPTIONAL]        -> String -> default: "info."
+// icon     : popup icon [OPTIONAL]         -> String -> default: no icon
+// speed    : popup close speed [OPTIONAL]  -> Number -> default: 250 (ms)
+var popup = CPOPUP.create(title, icon, speed);
 CPOPUP.close(popup);
 ```
 
@@ -53,6 +56,8 @@ _The following code shows the basic and mandatory skeleton that you must include
 <div class="popup-body">
     <your_html_code_here>
 </div>
+
+<!-- footer optional -->
 <div class="popup-actions">
     <your_html_code_here>
 </div>
